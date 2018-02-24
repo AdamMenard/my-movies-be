@@ -7,8 +7,8 @@ var movieListsController = require('../controllers/movieLists');
 // User Routes
 router.get('/api/users', usersController.index);
 
-//Movie List Routes
-// router.get('/api/movie', movieController.index);
+//API Call Movie Routes
+router.get('/api/movies', moviesController.index);
 
 //Movie List Routes
 router.get('/api/movie_lists', movieListsController.index);

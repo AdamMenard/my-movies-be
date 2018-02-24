@@ -1,9 +1,10 @@
 require('dotenv').config();
 
 var express = require('express');
+var bodyParser = require('body-parser');
 var app = express();
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/my-movies-be');
+mongoose.connect('mongodb://http://localhost:8080/');
 var myMoviesRoutes = require('./config/routes.js');
 
 app.use(function(req, res, next) {
@@ -13,7 +14,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-var bodyParser = require('body-parser');
+// app.use(express.static('public'));
 app.use(bodyParser.json());
 
 app.use(myMoviesRoutes);
