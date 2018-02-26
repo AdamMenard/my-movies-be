@@ -9,14 +9,13 @@ function index(req, res) {
     .then(json => res.json(json));
 }
 
-module.exports.index = index;
+function create(req, res) {
+  console.log(req.body)
+  Movie.create(req.body, function(err, newlyCreatedMovieInDb){
+    if (err) res.send(err);
+    else res.json(newlyCreatedMovieInDb);
+  });
+}
 
-// function index(req, res) {
-//   Movie.find({}, function(err, allMoviesFromServer) {
-//     if (err) {
-//     	res.send(err);
-//     } else {
-//     	res.json(allMoviesFromServer);
-//     }
-//   });
-// }
+module.exports.index = index;
+module.exports.create = create;

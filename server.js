@@ -4,7 +4,6 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://http://localhost:8080/');
 var myMoviesRoutes = require('./config/routes.js');
 
 app.use(function(req, res, next) {
@@ -19,7 +18,7 @@ app.use(bodyParser.json());
 
 app.use(myMoviesRoutes);
 
-let port = process.env.PORT || 3000;
+let port = process.env.PORT || 8080;
 
 app.listen(port, function() {
   console.log(`Listening on port ${ port }`);

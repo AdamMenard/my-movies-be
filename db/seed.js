@@ -4,13 +4,13 @@ let users = [{
   	name: 'Adam',
   	email: 'adam@email.com',
   	password: 'adam',
-  	// movie_lists: [MovieList.schema],
+  	movie_lists: [MovieList[0]],
     // comments: [Comment.schema]
   }, {
     name: 'Bob',
   	email: 'bob@email.com',
   	password: 'bob',
-  	// movie_lists: [MovieList.schema],
+  	movie_lists: [MovieList[1]],
     // comments: [Comment.schema]
   }
 ];
@@ -33,29 +33,56 @@ let movies = [{
 //
 let movieList = [{
   title: 'Best movies ever',
-  movies: [{movies[0]}, {movies[1]}],
+  movies: [movies[0], movies[1]],
   // comments: []
   }, {
   title: 'Really good movie',
-  movies: [{movies[0]}],
+  movies: [movies[0]],
   // comments: []
   }
 ]
 
-models.User.create(users, function(err, users) {
-  console.log("created")
+models.User.remove({}, function(err, res) {
   if (err) {
-    console.log('Error creating users: ', err);
+    console.log('Error removing comments: ', err);
     process.exit();
   }
-  console.log('Created', users.length, 'users');
+  console.log('Removed all Users');
+  models.User.create(users, function(err, users) {
+    if (err) {
+      console.log('Error creating users: ', err);
+      process.exit();
+    }
+    console.log('Created', users.length, 'users');
+  });
 });
 
-models.Movie.create(movies, function(err, movies) {
-  console.log("created")
+models.Movie.remove({}, function(err, res) {
   if (err) {
-    console.log('Error creating movies: ', err);
+    console.log('Error removing movies: ', err);
     process.exit();
   }
-  console.log('Created', movies.length, 'movies');
+  console.log('Removed all Movies');
+  models.Movie.create(movies, function(err, movies) {
+    if (err) {
+      console.log('Error creating movies: ', err);
+      process.exit();
+    }
+    console.log('Created', movies.length, 'movies');
+  });
+});
+
+models.MovieList.remove({}, function(err, res) {
+  if (err) {
+    console.log('Error removing movie lists: ', err);
+    process.exit();
+  }
+  console.log('Removed all Movie Lists');
+  models.MovieList.create(movieList, function(err, movies) {
+    if (err) {
+      console.log('Error creating movie list: ', err);
+      process.exit();
+    }
+    console.log('Created', movieList.length, 'movieList');
+  });
 });

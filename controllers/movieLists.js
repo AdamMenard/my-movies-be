@@ -11,4 +11,13 @@ function index(req, res) {
   });
 }
 
+function create(req, res) {
+  console.log(req.body)
+  MovieList.create(req.body, function(err, newlyCreatedMovieListInDb){
+    if (err) res.send(err);
+    else res.json(newlyCreatedMovieListInDb);
+  });
+}
+
 module.exports.index = index;
+module.exports.create = create;

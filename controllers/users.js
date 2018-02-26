@@ -11,4 +11,13 @@ function index(req, res) {
   });
 }
 
+function create(req, res) {
+  console.log(req.body)
+  User.create(req.body, function(err, newlyCreatedUserInDb){
+    if (err) res.send(err);
+    else res.json(newlyCreatedUserInDb);
+  });
+}
+
 module.exports.index = index;
+module.exports.create = create;
