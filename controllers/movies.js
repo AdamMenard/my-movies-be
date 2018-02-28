@@ -1,5 +1,6 @@
 var models = require('../models');
 var Movie = models.Movie;
+var MovieList = models.MovieList;
 let fetch = require('node-fetch');
 
 function index(req, res) {
@@ -9,11 +10,23 @@ function index(req, res) {
     .then(json => res.json(json));
 }
 
+// function create(req, res) {
+//   console.log(req.body)
+//   Movie.create(req.body, function(err, newlyCreatedMovieInDb){
+//     if (err) res.send(err);
+//     else res.json(newlyCreatedMovieInDb);
+//   });
+// }
+
 function create(req, res) {
-  console.log(req.body)
-  Movie.create(req.body, function(err, newlyCreatedMovieInDb){
-    if (err) res.send(err);
-    else res.json(newlyCreatedMovieInDb);
+  MovieList.findById(req.params.movieList_id, function(err, foundMovieList) {
+    console.log(req.body)
+    var newMovie = new Movie(req.body);
+    console.log(newMovie)
+    foundMovieList.movies.push(newMovie);
+    foundMovieList.save(function(err, savedMovieList) {
+      res.json(newMovie);
+    });
   });
 }
 

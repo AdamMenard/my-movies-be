@@ -11,6 +11,16 @@ function index(req, res) {
   });
 }
 
+function show(req, res) {
+  MovieList.findById(req.params.movieList_id, function(err, oneMovieListFromServer) {
+    if (err) {
+    	res.send(err);
+    } else {
+    	res.json(oneMovieListFromServer);
+    }
+  });
+}
+
 function create(req, res) {
   console.log(req.body)
   MovieList.create(req.body, function(err, newlyCreatedMovieListInDb){
@@ -20,4 +30,5 @@ function create(req, res) {
 }
 
 module.exports.index = index;
+module.exports.show = show;
 module.exports.create = create;
