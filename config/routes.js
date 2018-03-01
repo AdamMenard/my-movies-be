@@ -17,5 +17,6 @@ router.post('/api/movie_lists/:movieList_id/movies', moviesController.create);
 router.get('/api/movie_lists', movieListsController.index);
 router.get('/api/movie_lists/:movieList_id', movieListsController.show);
 router.post('/api/movie_lists', movieListsController.create);
+router.delete('/api/movie_lists/:movieList_id', movieListsController.destroy);
 
 module.exports = router;
