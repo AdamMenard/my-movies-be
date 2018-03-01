@@ -10,14 +10,6 @@ function index(req, res) {
     .then(json => res.json(json));
 }
 
-// function create(req, res) {
-//   console.log(req.body)
-//   Movie.create(req.body, function(err, newlyCreatedMovieInDb){
-//     if (err) res.send(err);
-//     else res.json(newlyCreatedMovieInDb);
-//   });
-// }
-
 function create(req, res) {
   MovieList.findById(req.params.movieList_id, function(err, foundMovieList) {
     console.log(req.body)

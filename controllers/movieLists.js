@@ -29,14 +29,25 @@ function create(req, res) {
   });
 }
 
+function update(req, res) {
+  console.log(req.body)
+  MovieList.findByIdAndUpdate(req.params.movieList_id,
+    {$set: req.body}, {"new": true},
+    function(err, updatedMovieList){
+    if (err) res.send(err);
+    else res.json(updatedMovieList);
+  });
+}
+
 function destroy(req, res) {
   MovieList.findByIdAndRemove(req.params.movieList_id, function(err, deletedAlbum) {
     if (err) { console.log('error', err); }
-    res.send(200);
+    res.send(deletedAlbum);
   });
 }
 
 module.exports.index = index;
 module.exports.show = show;
 module.exports.create = create;
+module.exports.update = update;
 module.exports.destroy = destroy;
