@@ -1,26 +1,5 @@
 let models = require('../models');
 
-let users = [{
-  	name: 'Adam',
-  	email: 'adam@email.com',
-  	password: 'adam',
-  	movie_lists: [MovieList[0], MovieList[1]],
-    // comments: [Comment.schema]
-  }, {
-    name: 'Bob',
-  	email: 'bob@email.com',
-  	password: 'bob',
-  	movie_lists: [MovieList[2]],
-    // comments: [Comment.schema]
-  }, {
-    name: 'Jessica',
-  	email: 'jessica@email.com',
-  	password: 'bob',
-  	movie_lists: [MovieList[3], MovieList[4]],
-    // comments: [Comment.schema]
-  }
-];
-
 let movies = [{
   title: 'The Terminator',
   description: 'In the post-apocalyptic future, reigning tyrannical supercomputers teleport a cyborg assassin known as the "Terminator" back to 1984 to kill Sarah Connor, whose unborn son is destined to lead insurgents against 21st century mechanical hegemony. Meanwhile, the human-resistance movement dispatches a lone warrior to safeguard Sarah. Can he stop the virtually indestructible killing machine?',
@@ -99,6 +78,27 @@ let movieList = [{
   // comments: []
   }
 ]
+
+let users = [{
+  	name: 'Adam',
+  	email: 'adam@email.com',
+  	password: 'adam',
+  	movie_lists: [movieList[0], movieList[1]],
+    // comments: [Comment.schema]
+  }, {
+    name: 'Bob',
+  	email: 'bob@email.com',
+  	password: 'bob',
+  	movie_lists: [movieList[2]],
+    // comments: [Comment.schema]
+  }, {
+    name: 'Jessica',
+  	email: 'jessica@email.com',
+  	password: 'bob',
+  	movie_lists: [movieList[3], movieList[4]],
+    // comments: [Comment.schema]
+  }
+];
 
 models.User.remove({}, function(err, res) {
   if (err) {
