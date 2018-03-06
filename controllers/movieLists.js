@@ -40,9 +40,9 @@ function update(req, res) {
 }
 
 function destroy(req, res) {
-  MovieList.findByIdAndRemove(req.params.movieList_id, function(err, deletedAlbum) {
+  MovieList.findByIdAndRemove(req.params.movieList_id, function(err, deletedMovieList) {
     if (err) { console.log('error', err); }
-    res.send(deletedAlbum);
+    res.send(deletedMovieList);
   });
 }
 

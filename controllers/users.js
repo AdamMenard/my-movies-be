@@ -19,5 +19,13 @@ function create(req, res) {
   });
 }
 
+function destroy(req, res) {
+  User.findByIdAndRemove(req.params.user_id, function(err, deletedUser) {
+    if (err) { console.log('error', err); }
+    res.send(deletedUser);
+  });
+}
+
 module.exports.index = index;
 module.exports.create = create;
+module.exports.destroy = destroy;

@@ -8,6 +8,7 @@ var movieListsController = require('../controllers/movieLists');
 // User Routes
 router.get('/api/users', usersController.index);
 router.post('/api/users', usersController.create);
+router.delete('/api/:user_id', usersController.destroy);
 
 //API Call Movie Routes
 router.get('/api/movies', moviesController.index);

@@ -39,7 +39,7 @@ let movies = [{
   }, {
   title: 'Zoolander',
   description: `Clear the runway for Derek Zoolander, VH1's three-time male model of the year. His face falls when hippie-chic "he's so hot right now" Hansel scooters in to steal this year's award. The evil fashion guru Mugatu seizes the opportunity to turn Derek into a killing machine. Its a well-designed conspiracy and only with the help of Hansel and a few well-chosen accessories can Derek make the world safe.`,
-  image: '/5vMEXtz1DXgxFsv8pgFFGuOlI8V.jpg'
+  image: '/pdgS9VE1Q5D7dwzDe7jt67ooPVq.jpg'
   }, {
   title: 'Citizen Kane',
   description: 'Newspaper magnate, Charles Foster Kane is taken from his mother as a boy and made the ward of a rich industrialist. As a result, every well-meaning, tyrannical or self-destructive move he makes for the rest of his life appears in some way to be a reaction to that deeply wounding event.',
